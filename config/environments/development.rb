@@ -58,6 +58,8 @@ Rails.application.configure do
   config.hosts << 'rails-api.myshopify.io'
   config.web_console.whitelisted_ips = '192.168.64.0/24'
 
+  config.debug_exception_response_format = :api
+
   Monorail.configure do |config|
     config.registry = Monorail::FileRegistry
     config.producer = Monorail::Producers::MemoryProducer
