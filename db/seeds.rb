@@ -5,5 +5,35 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# Create the main sample brewery
+
+Brewery.create!(
+  name: "Dominion City Brewing Co.",
+  address: "5510 Canotek Rd Unit 15, Gloucester",
+  city: "Ottawa",
+  taproom: true,
+  restaurant: true,
+  website: "https://www.dominioncity.ca/pages/our-beer",
+)
+
+
+# Generate more additional users.
+60.times do |n|
+  name = Faker::Company.name
+  address = Faker::Address.street_address
+  city = Faker::Address.city
+  taproom = Faker::Boolean.boolean
+  restaurant = Faker::Boolean.boolean
+  website = Faker::Internet.url
+  Brewery.create!(
+    name: name,
+    address: address,
+    city: city,
+    taproom: taproom,
+    restaurant: restaurant,
+    website: website,
+  )
+end
+
+
+# User Faker::Beer for beers
