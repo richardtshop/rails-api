@@ -6,8 +6,8 @@
 
 - [x] Index (need to paginate)
 - [x] Create
+- [x] Show
 - [ ] Update
-- [ ] Show
 - [ ] Destroy
 
 ### Tests
