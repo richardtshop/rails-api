@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 class BreweriesController < ApplicationController
   ## TO DO
-
   # Add auth for destroy/update
   # before_action :only_respond_to_json
 
@@ -14,7 +13,7 @@ class BreweriesController < ApplicationController
     @id = params[:id]
     begin
       @brewery = Brewery.find(@id)
-      render_brewery_success
+      render json: @brewery
     rescue
       render_not_found_error @id
      end

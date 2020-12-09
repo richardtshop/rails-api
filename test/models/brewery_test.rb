@@ -1,7 +1,12 @@
 require 'test_helper'
 
 class BreweryTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  def setup
+    @brewery = breweries(:dominion)
+  end
+
+  test "brewery should be valid" do
+    assert @brewery.valid?
+  end
 end

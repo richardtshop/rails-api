@@ -3,7 +3,7 @@ require 'test_helper'
 class BreweriesControllerTest < ActionDispatch::IntegrationTest
 
   def setup
-    @brewery = breweries(:one)
+    @brewery = breweries(:dominion)
   end
 
   test "should get index" do

@@ -34,6 +34,3 @@ Brewery.create!(
     website: website,
   )
 end
-
-
-# User Faker::Beer for beers

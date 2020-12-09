@@ -1,15 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: Dominion City Brewing Co.
+dominion:
+  name: dominion city brewing co. fix
   address: 5510 Canotek Rd Unit 15, Gloucester
   city: Ottawa
   taproom: true
   restaurant: true
   website: https://www.dominioncity.ca/pages/our-beer
 
-two:
-  name: Waller St. Brewing
+waller:
+  name: waller st. brewing fix
   address: 14 Waller St
   city: Ottawa
   taproom: true

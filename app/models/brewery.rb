@@ -1,5 +1,4 @@
 class Brewery < ApplicationRecord
-
   before_save :custom_before_save
 
   VALID_URL_REGEX = URI::DEFAULT_PARSER.regexp[:ABS_URI]
