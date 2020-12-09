@@ -7,16 +7,16 @@
 - [x] Index (need to paginate)
 - [x] Create
 - [x] Show
-- [ ] Update
-- [ ] Destroy
+- [x] Update
+- [x] Destroy
 
 ### Tests
 
-- [ ] Index
+- [x] Index
 - [x] Create
-- [ ] Update
-- [ ] Show
-- [ ] Destroy
+- [x] Update
+- [x] Show
+- [x] Destroy
 
 ## Beers
 

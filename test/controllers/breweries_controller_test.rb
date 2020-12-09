@@ -11,10 +11,16 @@ class BreweriesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  # test "should get show" do
-  #   get breweries_show_url
-  #   assert_response :success
-  # end
+  test "should get show" do
+    get brewery_url(@brewery)
+    assert_response :success
+  end
+
+  test "should 404 on show for non-existent brewery" do
+    get brewery_url(id: -1)
+    assert_response :not_found
+  end
+
 
   test "should create brewery with correct parameters" do
     post breweries_url, params: {
@@ -101,10 +107,30 @@ class BreweriesControllerTest < ActionDispatch::IntegrationTest
   end
 
 
-  # test "should get update" do
-  #   get breweries_update_url
-  #   assert_response :success
-  # end
+  test "should update brewery" do
+    @new_name = "New name"
+    patch brewery_url(@brewery), params: {
+      brewery: {
+        name: @new_name
+      }
+    }
+    @brewery.reload
+    assert_response :success
+    assert_equal @brewery.name, @new_name.downcase!
+  end
+
+
+  test "should 404 update brewery that doesn't exist" do
+    @new_name = "New name"
+    patch brewery_url(-1), params: {
+      brewery: {
+        name: @new_name
+      }
+    }
+    assert_response :not_found
+
+  end
+
 
   # test "should get destroy" do
   #   get breweries_destroy_url
