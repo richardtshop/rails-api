@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+trouble:
+  name: trouble in the fields
+  style: laurentian adjust lager
+  ibu: 70
+  abv: 4.5%
+  brewery_id: 1
+
+darkest:
+  name: darkest hour
+  style: dark lager
+  ibu: 40
+  abv: 5%
+  brewery_id: 1
