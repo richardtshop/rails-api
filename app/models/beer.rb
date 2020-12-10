@@ -6,33 +6,20 @@ class Beer < ApplicationRecord
     :name,
     presence: true,
     uniqueness: {
-      case_sensitive: false ,
-      scope: [:brewery_id]
+      case_sensitive: false,
+      scope: [:brewery_id],
     }
   )
-  validates(
-    :style,
-    presence: true
-  )
+  validates :style, presence: true
   validates(
     :ibu,
     presence: true,
     numericality: true,
   )
-  validates(
-    :abv,
-    presence: true
-
-    )
-  validates(
-    :brewery_id,
-    presence: true,
-    )
+  validates :abv, presence: true
+  validates :brewery_id, presence: true
 
   private
-
-
-
 
   def custom_before_save
     name.downcase!

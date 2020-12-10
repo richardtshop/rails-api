@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 class BreweriesController < ApplicationController
-  ## TO DO
-  # Add auth for destroy/update
-  # before_action :only_respond_to_json
 
   def index
     @breweries = Brewery.all
@@ -13,7 +10,8 @@ class BreweriesController < ApplicationController
     @id = params[:id]
     begin
       @brewery = Brewery.find(@id)
-      render json: @brewery
+      render json: @brewery, serializer: SingleBrewerySerializer
+
     rescue
       render_not_found_error @id
      end
@@ -22,7 +20,7 @@ class BreweriesController < ApplicationController
   def create
     @brewery = Brewery.new(brewery_params)
     if @brewery.save
-      render_brewery_success 'saved'
+      render json: @brewery, status: 201
     else
       render_brewery_errors
     end
@@ -43,12 +41,17 @@ class BreweriesController < ApplicationController
   end
 
   def destroy
-    @brewery = Brewery.find(params[:id])
-    @brewery.destroy
-    if @brewery.destroyed?
-      render_brewery_success 'deleted'
-    else
-      render_brewery_errors
+    @id = params[:id]
+    begin
+      @brewery = Brewery.find(@id)
+      @brewery.destroy
+      if @brewery.destroyed?
+        render_brewery_success 'deleted'
+      else
+        render_brewery_errors
+      end
+    rescue
+      render_not_found_error @id
     end
   end
 
@@ -61,11 +64,11 @@ class BreweriesController < ApplicationController
   end
 
   def only_respond_to_json
-    head(:not_acceptable) unless params[:format] == 'json'
+    head :not_acceptable unless params[:format] == 'json'
   end
 
-  def render_brewery_success(success_message = "Success")
-    render(json: { "status": 201, "message": "Succesfully #{success_message}", "brewery": @brewery })
+  def render_brewery_success(message)
+    render json: {status: message, brewery: BrewerySerializer.new(@brewery)}, status: 200
   end
 
   def render_brewery_errors

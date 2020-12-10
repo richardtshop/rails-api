@@ -128,14 +128,19 @@ class BreweriesControllerTest < ActionDispatch::IntegrationTest
       }
     }
     assert_response :not_found
-
   end
 
+  test "should delete brewery" do
+    assert_difference 'Brewery.count', -1 do
+      delete brewery_url(@brewery)
+    end
+  end
 
-  # test "should get destroy" do
-  #   get breweries_destroy_url
-  #   assert_response :success
-  # end
+  test "should delete also deletes brewery beers" do
+    assert_difference 'Beer.count', -2 do
+      delete brewery_url(@brewery)
+    end
+  end
 
 end
 

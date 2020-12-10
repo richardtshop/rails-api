@@ -5,20 +5,11 @@ trouble:
   style: laurentian adjust lager
   ibu: 70
   abv: 4.5%
-  brewery: dominion
+  brewery_id: 1
 
 darkest:
   name: darkest hour
   style: dark lager
   ibu: 40
   abv: 5%
-  brewery: dominion
-# {
-#   "beer": {
-#       "name": "test beer",
-#       "style": "ale",
-#       "ibu:": 80,
-#       "abv": "5%",
-#       "brewery_id": 1
-#   }
-# }
+  brewery_id: 1

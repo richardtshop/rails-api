@@ -4,12 +4,12 @@
 
 ### Routes
 
-- [x] Index (need to paginate)
+- [x] Index
 - [x] Create
 - [x] Show
 - [x] Update
 - [x] Destroy
-  - [ ] Destroy associated beers as well
+  - [x] Destroy associated beers as well
 
 ### Tests
 
@@ -24,27 +24,25 @@
 
 ### Routes
 
-- [ ] Index (need to paginate)
-- [ ] Create
-- [ ] Update
-- [ ] Show
-- [ ] Destroy
+- [x] Index
+- [x] Create
+- [x] Show
+- [x] Update
+- [x] Destroy
 
 ### Tests
 
-- [ ] Index
-- [ ] Create
-- [ ] Update
-- [ ] Show
-- [ ] Destroy
+- [x] Index
+- [x] Create
+- [x] Update
+- [x] Show
+- [x] Destroy
 - [ ] Model test (p633)
 
 ## Misc
 
 - [ ] README.md
-- [ ] helpers for rendering?
-
-Check seriaziler is sending the correct fields for destroy/create/patch
-
-Repeated error on validation
-Add uniqueness on two columns combined (name and brewery_id) at DB level. Couldn't get it to combine the two
+- [x] Check seriaziler is sending the correct fields for destroy/create/patch
+- [x] subobjects not being serialized e.g. brewery not being serialized on beers
+- [x] Also can I show different info for show and index?
+- [x] Update HTTP responses for Patch and Delete so they respond with a message indicating whats has been done

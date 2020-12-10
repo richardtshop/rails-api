@@ -1,6 +1,8 @@
 class BeerSerializer < ActiveModel::Serializer
-  # TO DO
-  # Also can I show different info for show and index?
-  # Sending brewery doesn't serialize
-  attributes :id, :name, :style, :ibu, :abv, :brewery
+
+  attributes :id, :name, :style, :ibu, :abv, :brewery, :brewery_id
+
+  def brewery
+    object.brewery.name
+  end
 end
