@@ -9,7 +9,7 @@ class BeersController < ApplicationController
     @id = params[:id]
     begin
       @beer = Beer.find(@id)
-      render json: @beer, serializer: SingleBeerSerializer
+      render json: { beer: SingleBeerSerializer.new(@beer) }
     rescue
       render_not_found_error @id
      end
@@ -29,7 +29,7 @@ class BeersController < ApplicationController
     begin
       @beer = Beer.find(@id)
       if @beer.update(beer_params)
-        render_beer_success
+        render_beer_success 'updated'
       else
         render_beer_errors
       end
@@ -44,7 +44,7 @@ class BeersController < ApplicationController
       @beer = Beer.find(@id)
       @beer.destroy
       if @beer.destroyed?
-        render_beer_success
+        render_beer_success 'deleted'
       else
         render_beer_errors
       end
