@@ -10,7 +10,7 @@ class BreweriesController < ApplicationController
     @id = params[:id]
     begin
       @brewery = Brewery.find(@id)
-      render json: @brewery
+      render json: @brewery, serializer: SingleBrewerySerializer
 
     rescue
       render_not_found_error @id
